@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ProcessorArchitecture>amd64</ProcessorArchitecture>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lib\QuantumLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
