@@ -19,7 +19,7 @@
             // Multiply it by a (mod c).
             MultiplyByModularInteger(a, c, LittleEndian(x));
             // Add to it b (mod c).
-            IncrementByModularInteger(a, c, LittleEndian(x));
+            IncrementByModularInteger(b, c, LittleEndian(x));
         } apply {
             // Check whether the result is 0.
             ControlledOnInt(0, X)(x, target);
