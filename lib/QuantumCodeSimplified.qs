@@ -11,7 +11,9 @@
 
     open SolveModularEquation;
 
-
+    /// # Summary
+    /// Marking oracle that checks whether the integer x written in the register
+    /// is a solution to the equation x + b = 0 (mod 4).
     operation IsEquationSolutionSimplified(b : Int, x : Qubit[], target : Qubit) : Unit is Adj {
         within {
             // Add b to x (mod 4).
@@ -34,7 +36,8 @@
 
 
     /// # Summary
-    /// A greatly simplified Solves equation of the form x + b = 0 (mod 4).
+    /// A greatly simplified Grover's search implementation.
+    /// Solves an equation of the form x + b = 0 (mod 4).
     operation FindEquationSolutionSimplified(b : Int) : Result[] {
         let c = 4;
         Message($"Solving equation x + {b} = 0 (mod {c})");

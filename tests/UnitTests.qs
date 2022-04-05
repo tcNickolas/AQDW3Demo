@@ -42,7 +42,7 @@ namespace SolveModularEquation_UnitTests {
     }
 
 
-    // A function that checks whether x solves the equation ax + b = 0 (mod 11) classically.
+    // A function that checks whether x solves the equation ax + b = 0 (mod c) classically.
     function IsEquationSolutionClassical(a : Int, b: Int, c : Int, x : Int) : Bool {
         return (a * x + b) % c == 0;
     }
@@ -57,6 +57,19 @@ namespace SolveModularEquation_UnitTests {
             AssertOracleImplementsFunction(c, 
                 IsEquationSolutionClassical(a, b, c, _), 
                 SolveModularEquation.IsEquationSolution(a, b, c, _, _));
+            Message("   Test passed!");
+        }
+    }
+
+
+    @Test("QuantumSimulator")
+    operation FindEquationSolutionSimplifiedTests() : Unit {
+        for b in 0 .. 3 {
+            Message($"Testing equation x + {b} = 0 (mod 4)...");
+            // Call the helper operation with the classical function and the quantum oracle instantiated for (a, b).
+            AssertOracleImplementsFunction(4, 
+                IsEquationSolutionClassical(1, b, 4, _), 
+                SolveModularEquationSimplified.IsEquationSolutionSimplified(b, _, _));
             Message("   Test passed!");
         }
     }
